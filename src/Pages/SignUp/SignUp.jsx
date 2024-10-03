@@ -14,6 +14,11 @@ import { useForm } from "react-hook-form";
   } = useForm();
   const onSubmit=data=>{
     console.log(data);
+    // fetch("https://api.imgbb.com/1/upload?key=00d06510cc396c061b24a569a4767059",{
+    //   method:"POST",
+    //   body:data
+    // }).then(res=>res.json())
+    // .then(data=>console.log(data))
   }
   return (
     <div className="flex justify-center items-center min-h-screen">
@@ -47,6 +52,21 @@ import { useForm } from "react-hook-form";
               />
             </div>
             <div>
+              <label  className="block mb-2 text-sm">
+              Image URL
+              </label>
+             
+               <input
+              type="url"
+              {...register("image")}
+                 className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-emerald-400 bg-gray-200 text-gray-900"
+            />
+        
+               {errors.image && (
+                  <span className="text-red-600">Image is required</span>
+                )}
+            </div>
+            {/* <div>
               <label htmlFor="image" className="block mb-2 text-sm">
                 Select Image:
               </label>
@@ -60,7 +80,7 @@ import { useForm } from "react-hook-form";
                {errors.image && (
                   <span className="text-red-600">Image is required</span>
                 )}
-            </div>
+            </div> */}
             <div>
               <label htmlFor="email" className="block mb-2 text-sm">
                 Email address
